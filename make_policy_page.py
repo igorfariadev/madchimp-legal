@@ -15,14 +15,14 @@ def section(text):
         if block.startswith("---") or not block: continue
         if block.startswith("## "): out.append("<h2>%s</h2>" % inline(block[3:]))
         elif block.startswith("### "): out.append("<h3>%s</h3>" % inline(block[4:]))
-        elif block.startswith("**") and block.endswith("**") and "\n" not in block and block.count("**") == 2 and block.startswith("**Spin"): out.append("<h1>%s</h1>" % inline(block[2:-2]))
+        elif block.startswith("**") and block.endswith("**") and "\n" not in block and block.count("**") == 2 and block.startswith(("**Village", "**Cerco")): out.append("<h1>%s</h1>" % inline(block[2:-2]))
         else: out.append("<p>%s</p>" % inline(block.replace("\n", " ")))
     return "\n".join(out)
 en = section(src[en_i:pt_i].replace("## English", "", 1))
 pt = section(src[pt_i:].replace("## Português (Brasil)", "", 1))
 page = """<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Spin &amp; Siege: Privacy Policy / Política de Privacidade</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Village Siege / Cerco da Vila: Privacy Policy / Política de Privacidade</title>
 <style>
 :root{--bg:#fbf8f2;--fg:#2b2118;--muted:#6b5a48;--accent:#4f7d3b;--line:#e2d9c8}
 @media(prefers-color-scheme:dark){:root{--bg:#1f1812;--fg:#efe6d6;--muted:#b8a68e;--accent:#8fc06f;--line:#3a2f24}}
