@@ -1,6 +1,6 @@
 import re, html, sys
 src = open("docs/privacy-policy.md", encoding="utf-8").read()
-en_i = src.index("## English"); pt_i = src.index("## Português (Brasil)")
+en_i = src.index("\n## English\n"); pt_i = src.index("\n## Português (Brasil)\n")
 def inline(t):
     t = html.escape(t, quote=False)
     t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
